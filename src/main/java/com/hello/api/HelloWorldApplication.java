@@ -1,5 +1,6 @@
 package com.hello.api;
 
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.hello.api.resources.HelloWorldResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -19,6 +20,7 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
     @Override
     public void initialize(final Bootstrap<HelloWorldConfiguration> bootstrap) {
         // TODO: application initialization
+        bootstrap.getObjectMapper().disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
     }
 
     @Override
